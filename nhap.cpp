@@ -1,21 +1,33 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-
-int main() 
+bool comp(string a,string b)
+{
+    if (a.size()!=b.size()){return a.size()<b.size();}
+    else
+    {
+        if (a.size()==1){return a>b;}
+        if (a.size()==3){return a<b;}
+        if (a.size()==2)
+        {for (int i=0;i<a.size();i++)
+        {
+            if (a[i]=='O'){return a>b;}
+            else if (a[i]=='V'){return a>b;}
+            else if (a[i]=='N'){return b>a;}
+        }}
+    }
+}
+int main()
 {
     int n;
-    string a[101],b[101];
+    string a[19];
     cin>>n;
-    for(int i=1;i<=n;i++)
+    for (int i=0;i<n;i++)
     {
         cin>>a[i];
-        //b[i]=a[i].size();
     }
-    sort(a+1,a+n+1,greater< a[101].size() >());
-    cout<<"___"<<endl;
-    for (int i=1;i<=n;i++)
+    sort(a,a+n,comp);
+    for (int i=0;i<n;i++)
     {
-        cout<<a[i]<<endl;
+        cout<<a[i]<<" ";
     }
-    return 0;
 }
